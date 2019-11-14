@@ -8,7 +8,7 @@
     		foreach ($tab_q as $q){
     			echo '
     		<fieldset>
-	    		<legend>formulaire ' . htmlspecialchars($q->get("id")) . ' :</legend>
+	    		<legend>Question ' . htmlspecialchars($q->get("id")) . ' :</legend>
 			    <p>
 			      <label for="label_id">Label</label> :
 			      <input type="text" value=' . htmlspecialchars($q->get("label")) . ' name="label" id="label_id" readonly/>

@@ -26,7 +26,7 @@
       <input type="text" value="<?php echo $id;?>" name="id" id="id" <?php echo $type;?>/>
     </p>
     <p>
-      <label for="label_id">Label</label> :
+      <label for="label_id">Question</label> :
       <input type="text" value="<?php echo $label;?>" name="label" id="label_id" required/>
     </p>
     <p>

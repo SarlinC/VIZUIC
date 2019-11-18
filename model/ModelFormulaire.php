@@ -32,21 +32,5 @@ require_once File::build_path(array("model", "Model.php"));
           $this->id = $data['id'];
         }
       }
-
-    public static function save($voiture) {
-      try{
-        $sql = "INSERT INTO Formulaire (label, typeInput, id) VALUES (:label, :typeInput, :id)";
-        $req_prep = Model::$pdo->prepare($sql);
-        $values = array("label" => $voiture->label, "typeInput" => $voiture->typeInput, "id" => $voiture->id);
-        
-        $req_prep->execute($values);
-      }
-      catch(PDOException $e) {
-        if($e->getCode() == 23000) {
-          return false;
-        }
-      }
-      return true;
-    }
   }
 ?>

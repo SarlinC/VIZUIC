@@ -6,13 +6,14 @@
     		<input type="hidden" name="controller" value=formulaire/>
     		<legend> Formulaire de VIZUIC : </legend>';
     		foreach ($tab_q as $q){
+    			$label = htmlspecialchars($q->get("label"));
     			echo '
     		<fieldset>
-	    		<legend>Question ' . htmlspecialchars($q->get("id")) . ' :</legend>
+	    		<legend>Question ' . htmlspecialchars($q->get("id")) . " :</legend>
 			    <p>
-			      <label for="label_id">Label</label> :
-			      <input type="text" value=' . htmlspecialchars($q->get("label")) . ' name="label" id="label_id" readonly/>
-			    </p>';
+			      <label for='label_id'>Label</label> :
+			      <input type='text' value='$label' name='label' id='label_id' readonly/>
+			    </p>";
 				    if(htmlspecialchars($q->get("typeInput")) == "nombre"){
 				    	$type = "radio";
 				    }else{

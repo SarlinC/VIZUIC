@@ -22,7 +22,7 @@
     <input type='hidden' name='controller' value="<?php echo $controller;?>"/>
     <legend>Mon formulaire :</legend>
     <p>
-      <label for="id">Id</label> :
+      <label for="id">Numéro de la question</label> :
       <input type="text" value="<?php echo $id;?>" name="id" id="id" <?php echo $type;?>/>
     </p>
     <p>

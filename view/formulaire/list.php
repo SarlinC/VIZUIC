@@ -16,13 +16,13 @@
 			    </p>";
 				    if(htmlspecialchars($q->get("typeInput")) == "nombre"){
 				    	$type = "radio";
-				    }else{
+				    }else {
 				    	$type = "text";
 				    }
 			    echo'
 			    <p>
 			      <label for="type_id">Type</label> :
-			      <input type=' . $type . ' value=' . htmlspecialchars($q->get("typeInput")) . ' name="typeInput" id="type_id" readonly/>
+			      <input type=' . $type . ' name="typeInput" id="type_id" required/>
 			    </p>
 		    </fieldset>';
 		

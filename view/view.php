@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
         <title><?php echo $pagetitle; ?></title>
     </head>
     <body>

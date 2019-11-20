@@ -1,41 +1,43 @@
 <?php
-require_once File::build_path(array("model", "ModelFormulaire.php")); // chargement du modèle
-class ControllerFormulaire {
-    protected static $object = "formulaire";
+require_once File::build_path(array("model", "ModelChamp.php")); // chargement du modèle
+class ControllerChamp {
+    protected static $object = "champ";
 
     public static function readAll() {
-        $tab_q = ModelFormulaire::selectAll();     //appel au modèle pour gerer la BD
-        $controller='formulaire';
+        $tab_q = ModelChamp::selectAll();     //appel au modèle pour gerer la BD
+        $controller='champ';
         $view='list';
-        $pagetitle='Liste des formulaires';
+        $pagetitle='Liste des champs';
         require File::build_path(array("view", "view.php"));  //"redirige" vers la vue
     }
 
     public static function read() {
-    	$q = ModelFormulaire::select($_GET['id']);
-        $controller='formulaire';
+    	$q = ModelChamp::select($_GET['id']);
+        $controller='champ';
         $view='detail';
-        $pagetitle='Detail du formulaire';
+        $pagetitle='Detail du champ';
         require File::build_path(array("view", "view.php"));
     }
 
     public static function create() {
-        $controller='formulaire';
+        $controller='champ';
         $view='update';
-        $pagetitle='Création de formulaire';
+        $pagetitle='Création de champ';
     	require File::build_path(array("view", "view.php"));
     }
 
     public static function created() {
-    	$q = new ModelFormulaire($_GET);
-        $controller='formulaire';
+    	$data = array('id' => $_GET['id'],
+                        'label' => $_GET['label'],
+                        'typeInput' => $_GET['typeInput']);
+        $controller='champ';
         $view='errorCreated';
         $pagetitle='Erreur lors de la création';
-    	if(ModelFormulaire::save($q) == false) {
+    	if(ModelChamp::save($data) == false) {
             require File::build_path(array("view", "view.php"));
     	}
     	else {
-            $tab_q = ModelFormulaire::selectAll();
+            $tab_q = ModelChamp::selectAll();
             $view='created';
             $pagetitle = 'Création réussie';
             require File::build_path(array("view", "view.php"));
@@ -43,17 +45,17 @@ class ControllerFormulaire {
     }
 
     public static function delete() {
-        ModelFormulaire::delete($_GET['id']);
+        ModelChamp::delete($_GET['id']);
         $id = $_GET['id'];
-        $tab_q = ModelFormulaire::selectAll();
-        $controller='formulaire';
+        $tab_q = ModelChamp::selectAll();
+        $controller='champ';
         $view='deleted';
         $pagetitle='Car deleted';
         require File::build_path(array("view", "view.php"));
     }
 
     public static function error() {
-        $controller='formulaire';
+        $controller='champ';
         $view='errorAction';
         $pagetitle='Aucune action de ce type';
         require File::build_path(array("view", "view.php"));
@@ -61,10 +63,10 @@ class ControllerFormulaire {
 
     public static function update() {
         $id = $_GET['id'];
-        $tab_q = ModelFormulaire::select($id);
-        $controller='formulaire';
+        $tab_q = ModelChamp::select($id);
+        $controller='champ';
         $view='update';
-        $pagetitle='Modification du formulaire';
+        $pagetitle='Modification du champ';
         require File::build_path(array("view", "view.php"));
     }
 
@@ -72,9 +74,9 @@ class ControllerFormulaire {
         $data = array('id' => $_GET['id'],
                         'label' => $_GET['label'],
                         'typeInput' => $_GET['typeInput']);
-        ModelFormulaire::update($data);
-        $tab_q = ModelFormulaire::selectAll();
-        $controller='formulaire';
+        ModelChamp::update($data);
+        $tab_q = ModelChamp::selectAll();
+        $controller='champ';
         $view='updated';
         $pagetitle='modification';
         require File::build_path(array("view", "view.php"));

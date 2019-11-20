@@ -5,7 +5,7 @@
     $type = 'required';
     $id = '""';
     $label = '""';
-    $typeInput = '""';
+    $typeInput = 'choisir un type';
   }
   else if($_GET['action'] == 'update') {
     $value = 'updated';
@@ -20,18 +20,21 @@
   <fieldset>
     <input type='hidden' name='action' value="<?php echo $value;?>"/>
     <input type='hidden' name='controller' value="<?php echo $controller;?>"/>
-    <legend>Mon formulaire :</legend>
+    <legend>Créer un champ :</legend>
     <p>
-      <label for="id">Numéro de la question</label> :
-      <input type="text" value="<?php echo $id;?>" name="id" id="id" <?php echo $type;?>/>
+      <label for="id">Numéro de la question :</label>
+      <input type="text" value="<?php echo $id;?>" name="id" id="id" required/>
     </p>
     <p>
-      <label for="label_id">Question</label> :
+      <label for="label_id">Question :</label>
       <input type="text" value="<?php echo $label;?>" name="label" id="label_id" required/>
     </p>
     <p>
-      <label for="type_id">Type</label> :
-      <input type="text" value="<?php echo $typeInput;?>" name="typeInput" id="type_id" required/>
+      <label for="type_id">Type :</label>
+      <select name="typeInput">
+        <option value="nombre">Nombre</option>
+        <option value="texte">Texte</option>
+      </select>
     </p>
     <p>
       <input type="submit" value="Envoyer" />

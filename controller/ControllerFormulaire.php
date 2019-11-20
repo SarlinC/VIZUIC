@@ -27,7 +27,8 @@ class ControllerFormulaire {
     }
 
     public static function created() {
-    	$data = array('label' => $_GET['label'],
+    	$data = array('id' => $_GET['id'],
+                        'label' => $_GET['label'],
                         'typeInput' => $_GET['typeInput']);
         $controller='formulaire';
         $view='errorCreated';
@@ -70,7 +71,8 @@ class ControllerFormulaire {
     }
 
     public static function updated() {
-        $data = array('label' => $_GET['label'],
+        $data = array('id' => $_GET['id'],
+                        'label' => $_GET['label'],
                         'typeInput' => $_GET['typeInput']);
         ModelFormulaire::update($data);
         $tab_q = ModelFormulaire::selectAll();

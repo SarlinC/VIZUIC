@@ -1,5 +1,6 @@
 <?php
 require_once File::build_path(array("controller", "ControllerFormulaire.php"));
+require_once File::build_path(array("controller", "ControllerChamp.php"));
 
 // On recupère l'action passée dans l'URL
 

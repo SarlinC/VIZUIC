@@ -2,14 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
         <title><?php echo $pagetitle; ?></title>
     </head>
     <body>
     	<nav>
     		<div>
 	    		<a href="index.php?action=readAll&controller=formulaire">Gestion formulaire</a>
-                <a href="index.php?action=create&controller=formulaire">Creation de champ</a>
+                <a href="index.php?action=create&controller=champ">Creation de champ</a>
     		</div>
     	</nav>
 		<?php

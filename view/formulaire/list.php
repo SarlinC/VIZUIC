@@ -1,36 +1,61 @@
 <?php
     echo '
-    <form method="get" action="./index.php">
+    <form method="get" action="">
     	<fieldset>
-    		<input type="hidden" name="action" value=error.php/>
-    		<input type="hidden" name="controller" value=formulaire/>
+    		<input type="hidden" name="action" value="error.php"/>
+    		<input type="hidden" name="controller" value="formulaire"/>
     		<legend> Formulaire de VIZUIC : </legend>';
     		foreach ($tab_q as $q){
     			$label = htmlspecialchars($q->get("label"));
-    			echo '
+    			echo "
     		<fieldset>
-	    		<legend>Question ' . htmlspecialchars($q->get("id")) . " :</legend>
+	    		<legend>Question {$q->get('id')}:</legend>
 			    <p>
-			      <label for='label_id'>Label</label> :
-			      <input type='text' value='$label' name='label' id='label_id' readonly/>
+			    	<strong>
+			      		{$label}
+			      	</strong>
 			    </p>";
 				    if(htmlspecialchars($q->get("typeInput")) == "nombre"){
 				    	$type = "radio";
+
+				    	echo "<div class='box'>";
+
+							for ($i=0; $i < 6; $i++) { 
+								echo "
+								<div>
+									<div class='radiobox'>
+										<label for='type_id'>$i</label>
+									</div>
+									<div>
+										<input type=" . $type . " name='{$q->get('id')}' id='type_id' value='$i' required/>
+									</div>
+								</div>";
+							}
+
+						echo "
+						</div>";
+
 				    }else {
 				    	$type = "text";
+				    	echo "
+				    		<p>
+			      				<input type=" . $type . " name='{$q->get('id')}' id='type_id' required/>
+			    			</p>";
 				    }
-			    echo'
-			    <p>
-			      <label for="type_id">Type</label> :
-			      <input type=' . $type . ' name="typeInput" id="type_id" required/>
-			    </p>
-		    </fieldset>';
+			    echo"
+			    <button>
+			    	<a href='./index.php?action=delete&controller=champ&id={$q->get('id')}'>DELETE</a>
+			    </button>
+			    <button>
+			    	<a href='./index.php?action=update&controller=champ&id={$q->get('id')}'>UPDATE</a>
+			    </button>
+		    </fieldset>";
 		
 			}
 	echo '
 	</fieldset>
-	</form>
 	<p>
 		<input type="submit" value="Envoyer" />
-	</p>';
+	</p>
+	</form>';
 ?>

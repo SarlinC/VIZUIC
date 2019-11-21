@@ -30,7 +30,7 @@
       <input type="text" value="<?php echo $label;?>" name="label" id="label_id" required/>
     </p>
     <p>
-      <label for="type_id">Type :</label>
+      <label for="typeInput">Type :</label>
       <select id="typeInput" onchange="myFunction()">
       <option value="Texte">Texte</option>
       <option value="Nombre">Nombre</option>
@@ -45,11 +45,9 @@
         if(x == "Echelle"){
         
         document.getElementById("demo").innerHTML = "Insérer valeur max de l'" + x;
-        document.getElementById("demo").innerHTML += " <input type='text'placeholder = '10'></input>"
+        document.getElementById("demo").innerHTML += " <input name='maxValue' type='text' placeholder = '10'/>"
         }
-        else { 
-         
-         
+        else {
         document.getElementById("demo").innerHTML = "Le type choisi est le type" + x;
         }
         }

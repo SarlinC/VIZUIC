@@ -44,10 +44,10 @@
 				    }
 			    echo"
 			    <button>
-			    	<a href='./index.php?action=delete&controller=champ&id={$q->get('id')}'>DELETE</a>
+			    	<a href='./index.php?action=delete&controller=champ&id={$q->get('id')}'>Supprimer</a>
 			    </button>
 			    <button>
-			    	<a href='./index.php?action=update&controller=champ&id={$q->get('id')}'>UPDATE</a>
+			    	<a href='./index.php?action=update&controller=champ&id={$q->get('id')}'>Mettre à Jour</a>
 			    </button>
 		    </fieldset>";
 		

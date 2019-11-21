@@ -31,10 +31,29 @@
     </p>
     <p>
       <label for="type_id">Type :</label>
-      <select name="typeInput">
-        <option value="nombre">Nombre</option>
-        <option value="texte">Texte</option>
-      </select>
+      <select id="mySelect" onchange="myFunction()">
+        <option value="Texte">Texte</option>
+        <option value="Nombre">Nombre</option>
+        <option value="Echelle">Echelle</option>
+        </select>
+
+        <p id ="demo"></p>
+
+        <script>
+        function myFunction() {
+         var x = document.getElementById("mySelect").value;
+          if(x == "Echelle"){
+          
+          document.getElementById("demo").innerHTML = "Insérer valeur max de l'" + x;
+          document.getElementById("demo").innerHTML += " <input type='text'placeholder = '10'></input>"
+          }
+          else { 
+           
+           
+          document.getElementById("demo").innerHTML = "Le type choisi est le type" + x;
+          }
+          }
+        </script>
     </p>
     <p>
       <input type="submit" value="Envoyer" />

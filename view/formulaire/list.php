@@ -27,6 +27,38 @@
 										<label for='type_id'>$i</label>
 									</div>
 									<div>
+										<input placeholder = 'Exemple : 10' type=" . $type . " name='{$q->get('id')}' id='type_id' value='$i' required/>
+									</div>
+								</div>";
+							}
+
+						echo "
+						</div>";
+					} 
+
+
+
+					if(htmlspecialchars($q->get("typeInput")) == "Echelle"){
+				    	$type = "radio";
+
+				    	echo "<div class='box'>";
+
+				    	if (isset($_GET['maxValue'])){
+				    		
+				    		$x = '' . $_GET['maxValue'];
+				    		
+				    	}
+				    	else{
+				    		$x = '5';
+				    	}
+
+							for ($i=0; $i < $x; $i++) { 
+								echo "
+								<div>
+									<div class='radiobox'>
+										<label for='type_id'>$i</label>
+									</div>
+									<div>
 										<input type=" . $type . " name='{$q->get('id')}' id='type_id' value='$i' required/>
 									</div>
 								</div>";
@@ -35,11 +67,16 @@
 						echo "
 						</div>";
 
-				    }else {
+				    }
+
+
+
+
+				    else {
 				    	$type = "text";
 				    	echo "
 				    		<p>
-			      				<input type=" . $type . " name='{$q->get('id')}' id='type_id' required/>
+			      				<input placeholder = 'Exemple : Je suis pour' type=" . $type . " name='{$q->get('id')}' id='type_id' required/>
 			    			</p>";
 				    }
 			    echo"

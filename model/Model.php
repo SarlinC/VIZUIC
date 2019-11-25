@@ -89,14 +89,17 @@ class Model {
 
     $primary_key = static::$primary;
 
+    $value2 = "";
+
     foreach ($data as $key => $value) {
       if (isset($key))
-        $value = $key . "= :" . $key . ", ";
+        $value2 = $value2 . $key . "= :" . $key . ", ";
     }
-    rtrim($value, ",");
 
-    $sql = "UPDATE $table_name SET $value
-            WHERE $primary_key = :primary";
+    $value2 = rtrim($value2, ", ");
+
+    $sql = "UPDATE $table_name SET $value2
+            WHERE $primary_key = :$primary_key";
 
     $req_prep = Model::$pdo->prepare($sql);
 

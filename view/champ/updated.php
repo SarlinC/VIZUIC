@@ -1,5 +1,5 @@
 <?php
-	echo "<p>Le formulaire a bien été initialisée !</p>";
+	echo "<p>Le champ a bien été modifié !</p>";
 	
 	require File::build_path(array("view", "formulaire","list.php"));
 ?>

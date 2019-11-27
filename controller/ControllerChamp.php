@@ -27,9 +27,18 @@ class ControllerChamp {
     }
 
     public static function created() {
-    	$data = array('id' => $_GET['id'],
+    	if ($_GET['typeInput'] == 'Echelle') {
+            $data = array('id' => $_GET['id'],
+                        'label' => $_GET['label'],
+                        'max' => $_GET['max'],
+                        'typeInput' => $_GET['typeInput']);
+        }
+        else {
+            $data = array('id' => $_GET['id'],
                         'label' => $_GET['label'],
                         'typeInput' => $_GET['typeInput']);
+        }
+        
         $controller='champ';
         $view='errorCreated';
         $pagetitle='Erreur lors de la création';
@@ -71,9 +80,18 @@ class ControllerChamp {
     }
 
     public static function updated() {
-        $data = array('id' => $_GET['id'],
+        if ($_GET['typeInput'] == 'Echelle') {
+            $data = array('id' => $_GET['id'],
+                        'label' => $_GET['label'],
+                        'max' => $_GET['max'],
+                        'typeInput' => $_GET['typeInput']);
+        }
+        else {
+            $data = array('id' => $_GET['id'],
                         'label' => $_GET['label'],
                         'typeInput' => $_GET['typeInput']);
+        }
+
         ModelChamp::update($data);
         $tab_q = ModelChamp::selectAll();
         $controller='champ';

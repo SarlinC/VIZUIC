@@ -9,13 +9,13 @@ class Conf {
     'hostname' => 'webinfo.iutmontp.univ-montp2.fr',
     // A l'IUT, vous avez une BDD nommee comme votre login
     // Sur votre machine, vous devrez creer une BDD
-    'database' => 'sarlinc',
+    'database' => 'binuadd',
     // A l'IUT, c'est votre login
     // Sur votre machine, vous avez surement un compte 'root'
-    'login' => 'sarlinc',
+    'login' => 'binuadd',
     // A l'IUT, c'est votre mdp (INE par defaut)
     // Sur votre machine personelle, vous avez creez ce mdp a l'installation
-    'password' => 'DavidLaTarlouze'
+    'password' => 'CocoLaSalope'
   );
    
   static public function getLogin() {

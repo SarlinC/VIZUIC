@@ -8,7 +8,7 @@
     <body>
     	<nav>
     		<div>
-	    		<a href="index.php?action=readAll&controller=formulaire">Gestion formulaire</a>
+	    		<a href="index.php?action=readAll&controller=champ">Gestion formulaire</a>
                 <a href="index.php?action=create&controller=champ">Creation de champ</a>
     		</div>
     	</nav>

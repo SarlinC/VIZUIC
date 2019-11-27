@@ -1,35 +1,95 @@
 <?php
     echo '
-    <form method="get" action="./index.php">
+    <form method="get" action="">
     	<fieldset>
-    		<input type="hidden" name="action" value=error.php/>
-    		<input type="hidden" name="controller" value=formulaire/>
+    		<input type="hidden" name="action" value="error.php"/>
+    		<input type="hidden" name="controller" value="formulaire"/>
     		<legend> Formulaire de VIZUIC : </legend>';
     		foreach ($tab_q as $q){
-    			echo '
+    			$label = htmlspecialchars($q->get("label"));
+    			echo "
     		<fieldset>
-	    		<legend>formulaire ' . htmlspecialchars($q->get("id")) . ' :</legend>
+	    		<legend>Question {$q->get('id')}:</legend>
 			    <p>
-			      <label for="label_id">Label</label> :
-			      <input type="text" value=' . htmlspecialchars($q->get("label")) . ' name="label" id="label_id" readonly/>
-			    </p>';
+			    	<strong>
+			      		{$label}
+			      	</strong>
+			    </p>";
 				    if(htmlspecialchars($q->get("typeInput")) == "nombre"){
 				    	$type = "radio";
-				    }else{
-				    	$type = "text";
+
+				    	echo "<div class='box'>";
+
+							for ($i=0; $i < 6; $i++) { 
+								echo "
+								<div>
+									<div class='radiobox'>
+										<label for='type_id'>$i</label>
+									</div>
+									<div>
+										<input placeholder = 'Exemple : 10' type=" . $type . " name='{$q->get('id')}' id='type_id' value='$i' required/>
+									</div>
+								</div>";
+							}
+
+						echo "
+						</div>";
+					} 
+
+
+
+					if(htmlspecialchars($q->get("typeInput")) == "Echelle"){
+				    	$type = "radio";
+
+				    	echo "<div class='box'>";
+
+				    	if (isset($_GET['max'])){
+				    
+				    		$x = '' . $_GET['max'];
+				    		
+				    	}
+
+							for ($i=0; $i < $x; $i++) { 
+								echo "
+								<div>
+									<div class='radiobox'>
+										<label for='type_id'>$i</label>
+									</div>
+									<div>
+										<input type=" . $type . " name='{$q->get('id')}' id='type_id' value='$i' required/>
+									</div>
+								</div>";
+							}
+
+						echo "
+						</div>";
+
 				    }
-			    echo'
-			    <p>
-			      <label for="type_id">Type</label> :
-			      <input type=' . $type . ' value=' . htmlspecialchars($q->get("typeInput")) . ' name="typeInput" id="type_id" readonly/>
-			    </p>
-		    </fieldset>';
+
+
+
+
+				    else {
+				    	$type = "text";
+				    	echo "
+				    		<p>
+			      				<input placeholder = 'Exemple : Je suis pour' type=" . $type . " name='{$q->get('id')}' id='type_id' required/>
+			    			</p>";
+				    }
+			    echo"
+			    <button>
+			    	<a href='./index.php?action=delete&controller=champ&id={$q->get('id')}'>Supprimer</a>
+			    </button>
+			    <button>
+			    	<a href='./index.php?action=update&controller=champ&id={$q->get('id')}'>Mettre à Jour</a>
+			    </button>
+		    </fieldset>";
 		
 			}
 	echo '
 	</fieldset>
-	</form>
 	<p>
 		<input type="submit" value="Envoyer" />
-	</p>';
+	</p>
+	</form>';
 ?>

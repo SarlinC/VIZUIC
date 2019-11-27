@@ -45,7 +45,7 @@
         if(x == "Echelle"){
         
         document.getElementById("demo").innerHTML = "Insérer valeur max de l'" + x;
-        document.getElementById("demo").innerHTML += " <input name='maxValue' type='text' placeholder = 'Exemple : 10'/>"
+        document.getElementById("demo").innerHTML += " <input name='max' type='text' placeholder = 'Exemple : 10'/>"
         }
         else {
         document.getElementById("demo").innerHTML = "Le type choisi est le type " + x;
